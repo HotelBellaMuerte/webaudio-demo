@@ -288,14 +288,7 @@ function AutoPray() {
 
 //workaround
 
-var interval = setInterval(function () {
-    voices = speechSynthesis.getVoices();
-    if (voices.length) clearInterval(interval); else return;
 
-    for (var i = 0; i < voices.length; i++) {
-        $("select").append("<option value=\"" + i + "\">" + voices[i].name + "</option>");
-    }
-}, 10);
 </script>
 <script>
 var message = new SpeechSynthesisUtterance(document.getElementById("notepad-page").textContent);
