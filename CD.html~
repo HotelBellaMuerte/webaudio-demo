@@ -171,7 +171,51 @@ transition-timing-function: ease-out;
 
 
 
- 
+ <script type="text/javascript">
+
+
+   $( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  } );
+
+ </script>
+
+ <script type="text/javascript">
+
+
+   $( function() {
+    $( "#dialog2" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog2" ).dialog( "open" );
+    });
+  } );
+
+ </script>
 
 <script type="text/javascript">
 

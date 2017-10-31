@@ -171,7 +171,51 @@ transition-timing-function: ease-out;
 
 
 
- 
+ <script type="text/javascript">
+
+
+   $( function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  } );
+
+ </script>
+
+ <script type="text/javascript">
+
+
+   $( function() {
+    $( "#dialog2" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 1000
+      }
+    });
+
+    $( "#opener" ).on( "click", function() {
+      $( "#dialog2" ).dialog( "open" );
+    });
+  } );
+
+ </script>
 
 <script type="text/javascript">
 
@@ -253,13 +297,11 @@ function onRecordButtonClicked() {
     document.getElementById("record-button").disabled = true
     if (recognizing) {
         recognition.stop();
-        alert("You've stopped to record, you're free to play, delete (grey eraser), or purge your work (red eraser).");
 
     } else {
         recognition.lang = "en-US";
         recognition.start();
         recognizing = true;
-        alert("You can begin to record now, please close me.");
     }
 }
 document.addEventListener('DOMContentLoaded', function() {
