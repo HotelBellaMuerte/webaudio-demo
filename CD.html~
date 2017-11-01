@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://raw.githubusercontent.com/bn0785ac/webaudio-demo/master/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.css">
 <style>
 
 .notepad {
@@ -286,7 +288,14 @@ function AutoPray() {
 
 //workaround
 
+var interval = setInterval(function () {
+    voices = speechSynthesis.getVoices();
+    if (voices.length) clearInterval(interval); else return;
 
+    for (var i = 0; i < voices.length; i++) {
+        $("select").append("<option value=\"" + i + "\">" + voices[i].name + "</option>");
+    }
+}, 10);
 </script>
 <script>
 var message = new SpeechSynthesisUtterance(document.getElementById("notepad-page").textContent);

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://raw.githubusercontent.com/bn0785ac/webaudio-demo/master/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="css/font-awesome.min.css">
+  <script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.css">
 <style>
 
 .notepad {
@@ -251,13 +253,11 @@ function onRecordButtonClicked() {
     document.getElementById("record-button").disabled = true
     if (recognizing) {
         recognition.stop();
-        alert("You've stopped to record, you're free to play, delete (grey eraser), or purge your work (red eraser).");
 
     } else {
         recognition.lang = "en-US";
         recognition.start();
         recognizing = true;
-        alert("You can begin to record now, please close me.");
     }
 }
 document.addEventListener('DOMContentLoaded', function() {
@@ -286,7 +286,14 @@ function AutoPray() {
 
 //workaround
 
+var interval = setInterval(function () {
+    voices = speechSynthesis.getVoices();
+    if (voices.length) clearInterval(interval); else return;
 
+    for (var i = 0; i < voices.length; i++) {
+        $("select").append("<option value=\"" + i + "\">" + voices[i].name + "</option>");
+    }
+}, 10);
 </script>
 <script>
 var message = new SpeechSynthesisUtterance(document.getElementById("notepad-page").textContent);
